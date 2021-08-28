@@ -1,0 +1,48 @@
+<div class="sign-up container">
+    <h2>{{ 'SIGNUP' | translate }}</h2>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <form class="form row" #f="ngForm" (ngSubmit)="signup(f)">
+                <div class=" col-md-6 name">
+                    <input type="text" class="form-control" ngModel #fname="ngModel" name="fname" placeholder="{{ 'FNAME' | translate }}" pattern="^[_A-zA-Z]*((-|\s)*[_A-zA-Z])*$" required> 
+                    <div class="text-danger" *ngIf="fname.invalid && fname.touched">first name is required</div>
+                </div>
+                <div class="col-md-6 name">
+                    <input type="text" class="form-control" ngModel #lname="ngModel" name="lname" placeholder="{{ 'LNAME' | translate }}" pattern="^[_A-zA-Z]*((-|\s)*[_A-zA-Z])*$" required>
+                    <div class="text-danger" *ngIf="lname.invalid && lname.touched">last name is required</div> <br>
+                </div>
+                <div class="col-12">
+                <input type="text" class="form-control" ngModel #email="ngModel" name="email" placeholder="{{ 'EMAIL' | translate }}" name="email" required email>
+                    <div class="text-danger" *ngIf="email.touched && email.errors?.required">your email is required</div>
+                    <div class="text-danger" *ngIf="email.touched && email.errors?.email">It's not match email format</div> <br>
+                </div>
+                <div class="col-12">
+                    <input type="number" class="form-control" ngModel #phone="ngModel" name="phone" placeholder="{{ 'PHONE' | translate }}" name="phone" required> <br>
+                    <div class="text-danger" *ngIf="phone.invalid && phone.touched">phone number is required</div>
+                </div>
+                <div class="col-12">
+                    <input type="text" class="form-control" ngModel name="city" placeholder="{{ 'LCITY' |  translate }}" pattern="^[_A-zA-Z]*((-|\s)*[_A-zA-Z])*$" required> <br>
+                </div>
+                <div class="col-12">
+                    <input type="password" class="form-control" ngModel #pass="ngModel" name="password" placeholder="{{ 'PASSWORD' | translate }}" name="password" required minlength="6">
+                    <div class="text-danger" *ngIf="pass.touched && pass.errors?.required">password is required</div>
+                    <div class="text-danger" *ngIf="pass.touched && pass.errors?.minlength">password must be more than 6 char</div> <br>
+                </div>
+                <div class="col-12">
+                    <input type="password" class="form-control" ngModel #confirmPass="ngModel" name="confirmPassword" placeholder="{{ 'CONFIRMPASSWORD' | translate }}" required>
+                    <div class="text-danger" *ngIf="confirmPass.touched && confirmPass.invalid">confirm password is required</div> <br>
+                    <div class="text-danger" *ngIf="confirmPass.value !== pass.value && confirmPass.touched">Passwords are not equal</div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" [disabled]="f.invalid || confirmPass.value !== pass.value" class="btn">{{ 'REGISTER' | translate }}</button>
+                    <p>{{ 'HAVEACC' | translate }} ? <a routerLink="/login">{{ 'SIGNIN' | translate }}</a></p>
+                </div>
+            </form>
+            <div class="alert-danger" *ngIf="errorMsg">{{errorMsg}} </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <img src="https://lh3.googleusercontent.com/proxy/Yx2nmh1ePUlFyjlPYzYiWfNwNBXM8dUpOikiEd-n9JJdjLU2sqiIkHEwvK95kbkh6V5wJ27biZ0Oj9WXtcET9N-IIGBkKzncBLza">
+        </div>
+    </div>
+   
+</div>

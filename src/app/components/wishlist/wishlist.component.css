@@ -1,0 +1,166 @@
+.wishlist{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.wishlist h5{
+    font-size: 29px;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    padding: 49px 0px;
+}
+.wishlist .main .table thead{
+    background-color: #f5f3f3;
+}
+.wishlist .main  .table td,
+.wishlist .main .table th {
+    padding: .75rem;
+    border-top: 1px solid #dee2e6;
+    vertical-align: initial;
+}
+.wishlist .main .table thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #b3b6b9b0;
+    border-top: 0px;
+    color: #7d7c7c;
+    font-weight: 500;
+    font-size: 16px;
+}
+.wishlist .main .table .product-name{
+    font-size: 17px;
+    font-weight: 400;
+    color: #272424d4;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+.wishlist .main .table td p{
+    font-size: 16px;
+    font-weight: 500;
+    color: #928f8f;
+    letter-spacing: 1px;
+}
+
+.wishlist .main .table .product-img{
+    width: 18%;
+}
+.wishlist .main .table .product-img img{
+    width: 61%;
+}
+.wishlist .main .btn-default{
+    border-radius: 0;
+    margin: 10px 0px;
+    background-color: transparent;
+    color: #000;
+    font-size: 14px;
+    border: 1px solid #201e1e;
+    width: 82%;
+    text-transform: uppercase;
+}
+.wishlist .main i{
+    font-size: 28px;
+    color: #888282;
+    font-weight: 200;
+    cursor: pointer;
+}
+.wishlist .main .price{
+    font-size: 16px;
+    font-weight: 600;
+    color: #444242;
+    letter-spacing: 2px;
+}
+.wishlist .main .mail i{
+    font-size: 18px;
+    color: #737171;
+    font-weight: 200;
+    cursor: pointer;
+    padding: 0px 6px;
+    font-weight: 800;
+}
+.wishlist .main .mail span{
+    box-sizing: border-box;
+    vertical-align: initial;
+    font-size: 13px;
+    color: #5d5757
+}
+
+/****************RESPONSIVE***************/
+@media (max-width: 895px){
+}
+/*mobile*/
+@media(min-width:432px) and (max-width:588px){  
+
+    .wishlist .main .table  thead tr th{
+        vertical-align: bottom;
+        border-bottom: 1px solid #b3b6b9b0;
+        border-top: 0px;
+        color: #7d7c7c;
+        font-weight: 500;
+        font-size: 13px;
+    }
+    .wishlist .main table tbody td .product-name{
+        font-size: 13px;
+    }
+    .wishlist .main table tbody  .price{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .wishlist .main table tbody td button{
+        border-radius: 0;
+        margin: 10px 0px;
+        background-color: transparent;
+        color: #000;
+        font-size: 9px;
+        border: 1px solid #201e1e;
+        width: 89%;
+        text-transform: uppercase;
+    }
+    .wishlist .main table tbody td i{
+        font-size: 20px;
+    }
+
+ }
+/*tablet*/
+/* @media(max-width:768px){
+
+} */
+/*desktop*/
+@media(min-width:959px) and (max-width:589px) {
+    .wishlist .main .table  thead tr th{
+        font-size: 14px;
+    }
+    .wishlist .main table tbody td .product-name{
+        font-size: 12px;
+    }
+    .wishlist .main table tbody .price{
+        font-size: 13px;
+    }
+    .wishlist .main table tbody td button{
+        font-size: 9px;
+        border: 1px solid #201e1e;
+        width: 100%;
+    }
+    .wishlist .main table tbody td i{
+        font-size: 23px;
+    }
+}
+@media(max-width:431){
+    .wishlist .main .table  thead tr th{
+        font-size: 12px;
+    }
+    .wishlist .main table tbody .product-img img{
+        width: 100%;
+    }
+    .wishlist .main table tbody td .product-name{
+        font-size: 12px;
+    }
+    .wishlist .main table tbody  .price{
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .wishlist .main table tbody td button{
+        font-size: 10px;
+        width: 116%;
+    }
+    .wishlist .main table tbody td i{
+        font-size: 18px;
+    }
+}

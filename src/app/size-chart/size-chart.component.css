@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+.main{
+    font-family: 'Open Sans', sans-serif;
+}
+.main .title{
+    border-bottom: 1px solid #ddd;
+    margin: 10px 0px;
+}
+.main .title h2{
+    font-size: 27px;
+}

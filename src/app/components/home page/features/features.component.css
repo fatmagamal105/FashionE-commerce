@@ -1,0 +1,20 @@
+.feature{
+    margin: 65px 0px;
+    text-align: center;
+    font-family: 'Merienda';
+}
+.feature .feature-content {
+    padding: 18px 10px;
+    background-color: #0a0a0a00;
+    color: #000000;
+}
+.feature .feature-content i{
+    font-size: 55px;
+    color: #fca311;
+}
+.feature .feature-content h2{
+    font-size: 15px;
+}
+.feature .feature-content p{
+    font-size: 13px;
+}

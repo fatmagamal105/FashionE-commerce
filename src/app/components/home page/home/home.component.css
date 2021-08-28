@@ -1,0 +1,31 @@
+.saleImage{
+    min-height: 45vh;
+    background : url("https://cdn.shopify.com/s/files/1/0506/5736/2089/files/outlet_sale_banner_copy.jpg?v=1620646976") center/cover no-repeat;
+}
+.addImg{
+    height: 250px;
+    background : url("https://eg.jumia.is/cms/eid-adha-21/games/new-day/Floor-Desktop-ARcopy_2.jpg") center/cover no-repeat;
+}
+@media (max-width: 480px){
+
+    .saleImage{
+        height: 14vh;
+        width: 100%;
+    }
+}
+@media (max-width:300px){
+    .saleImage{
+        height: 14vh;
+        width: 100%;
+    }
+    .addImg{
+        height: 135px;
+    }
+}
+/*mobile*/
+@media(max-width:640px){   
+}
+/*tablet*/
+@media(max-width:768px){}
+/*desktop*/
+/* @media(max-width:960px){} */

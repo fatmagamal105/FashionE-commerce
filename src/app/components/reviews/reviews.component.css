@@ -1,0 +1,111 @@
+/*Reviews*/
+.rating-product{
+    margin: 70px 0px;
+}
+.reviews .header .title {
+    float: left;
+    font-size: 18px;
+    background-color: #fca311;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 5px 10px;
+
+}
+.reviews .header .all-reviwes{
+    float: right;
+    color: #6b6868;
+    font-size: 14px;
+}
+.reviews .header .all-reviwes:hover{
+    text-decoration:underline;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+.reviews .header .all-reviwes i{
+    padding-left: 7px;
+}
+.reviews .review-body{
+    padding: 33px 0px;
+    width: 80%;
+}
+.review-body h3{
+    font-weight: 500;
+    font-size: 20px;
+}
+.review-body ngb-rating,
+.rate-product ngb-rating{
+    font-size: 20px;
+    color: #fca311;
+    float: left;
+}
+.review-body pre{
+    float: right;
+}
+
+.main-detail .rating-product{
+    padding: 38px 0px;
+}
+.rating-product .reviews{
+    float: left;
+}
+.rating-product .rate-product{
+    float: right;
+}
+.rate-product h4{
+    font-size: 15px;
+    background-color: #fca311;
+    padding: 5px 18px;
+    color: #fff;
+    text-transform: capitalize;
+}
+.rate-product pre{
+    padding-left: 20px;
+}
+.rate-product input,
+.rate-product textarea{
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+.rate-product .submit{
+    text-align: center;
+}
+.rate-product .submit button{
+    text-transform: uppercase;
+    float: right;
+    border-radius: 0;
+    margin: 11px 0px;
+    background-color: transparent;
+    color: #000;
+    font-size: 12px;
+    border: 1px solid #201e1e;
+    width: 100%;
+    margin: uppercase;
+    padding: 10px 35px
+}
+.rate-product .submit button:hover{
+    background-color: #000;
+    color: #fff;
+    transition: all 0.8s;
+}
+.all-rating {
+    float: right;
+    text-align: center;
+    padding: 17px;
+    background-color: #dddddd70
+}
+.all-rating p{
+    font-size: 19px;
+    font-weight: 500;
+    color: #fca311;
+}
+.all-rating .rating{
+    font-size: 25px;
+    color: #fca311;
+}
+.all-rating .evaluation{
+    font-size: 18px;
+    color: #000;
+    padding: 20px 0px;
+    font-weight: 300;
+}

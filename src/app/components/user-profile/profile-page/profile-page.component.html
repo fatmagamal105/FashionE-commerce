@@ -1,0 +1,52 @@
+<div class="history container my-5">
+    <h2>{{ 'MYACC' | translate }}</h2>
+    <h3>{{ 'ORDERHISTORY' | translate }}</h3>
+    <hr>
+    <div class="notFound" *ngIf="!userOrders">You haven't placed any orders yet.</div>
+    <div class="row">
+      <div class="col-lg-8 col-md-6 col-sm-12">
+        <div class="myOrders container" *ngIf="userOrders">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th>{{ 'ORDERNUM' | translate }}</th>
+                  <th>{{ 'ORDERDATE' | translate }}</th>
+                  <th>{{ 'TOTALPRICE' | translate }}</th>
+                  <th>{{ 'PRODUCTS' | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let order of userOrders | paginate: { itemsPerPage: 1, currentPage: p };index as i ">
+                  <td>{{i+1}}</td>
+                  <td>{{order.date}}</td>
+                  <td>{{order.totalprice | currency}}</td>
+                  <td scope="col">
+                    <ul *ngFor="let prod of order.items">
+                      <li>Item Name : {{prod.name}}</li>
+                      <!-- <li>Item id : {{prod.itemId}}</li> -->
+                      <li>From category : {{prod.category}}</li>
+                      <li><img [src]="prod.imageUrl"></li>
+                      <li>Color : {{prod.color}}</li>
+                      <li>Size : {{prod.size}}</li>
+                      <li>Quantity : {{prod.quantity}}</li>
+                      <li>Price : {{prod.price | currency}}</li>
+                      <hr>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <img src="https://www.eoi.es/blogs/craftdesigners/files/2014/11/e-commerce_fulfillment_promofill-300x300.jpg">
+      </div>
+    </div>
+    <div class="paginate">
+      <pagination-controls (pageChange)="p = $event"
+      previousLabel=""
+      nextLabel=""
+  ></pagination-controls> 
+  </div>
+</div>
+

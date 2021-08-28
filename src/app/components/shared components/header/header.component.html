@@ -1,0 +1,155 @@
+<div class="top-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-4">
+        <div class="login-bar">
+          <select class="form-select"  #langselect (change)="translate.use(langselect.value)">
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{ lang }}</option>
+          </select>
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ 'MYACC' | translate }}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item myActive" *ngIf="islogged" routerLink="/profile"> {{ 'MYACC' | translate }}</a></li>
+              <li><a class="dropdown-item myActive" *ngIf="!islogged" routerLink="/login">{{ 'SIGNIN' | translate }}</a></li>
+              <li><a class="dropdown-item myActive" *ngIf="!islogged" routerLink="/register">{{ 'SIGNUP' | translate }}</a></li>
+              <li><a class="dropdown-item myActive" *ngIf="islogged" (click)="logout()">{{ 'LOGOUT' | translate }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-sm-4">
+        <div class="logo-bar">
+          <div routerLink="/home">
+            <span class="logo">
+              E<b class="char">-</b>SHOP
+            </span>
+            <p>Home of Fashion</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-4">
+        <div class="shopping-bar">
+          <div class="wrap">
+            <div class="search">
+               <!-- <input type="text" class="searchTerm" placeholder="Search.."> -->
+               <!-- <button type="submit" class="searchButton">
+                 <i class="fa fa-search"></i>
+              </button> -->
+            </div>
+          </div>
+         <div class="icons">
+          <a routerLink="/wishlist">
+            <i class="far fa-heart mx-2"></i></a>
+           <a routerLink="/cart">
+            <i class="fas fa-shopping-cart"></i></a>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="nav top-nav">
+  <div class="items">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lang</a>
+    </li>
+  </div> 
+  <li class="nav-item mx-auto logo-title">
+    
+  </li>
+  <li class="nav-item"> -->
+    
+  <!-- <div>
+    <mat-drawer-container class="example-container" autosize>
+      <mat-drawer #drawer class="example-sidenav" mode="side">
+        <p>Auto-resizing sidenav</p>
+        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+        <button (click)="showFiller = !showFiller" mat-raised-button>
+          Toggle extra text
+        </button>
+      </mat-drawer>
+    
+      <div class="example-sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()">
+          Toggle sidenav
+        </button>
+      </div>
+    
+    </mat-drawer-container>
+  </div>>
+</li>
+</div-->
+
+
+
+<div class="nav-info">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <!-- <a class="navbar-brand" href="#">Hom</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="head-lines">
+            <ul class="navbar-nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ 'HOME.HOME' | translate }}</a>
+              </li>
+              <li class="nav-item" (click)="women()">
+                <a class="nav-link"   routerLink="/women" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">{{ 'HOME.WOMEN' | translate }}</a>
+              </li>
+              <li class="nav-item" (click)="men()">
+                <a class="nav-link"  routerLink="/men" routerLinkActive="active">{{ 'HOME.MEN' | translate }}</a>
+              </li>
+              <li class="nav-item"  (click)="boys()">
+                <a class="nav-link" routerLink="/boys" routerLinkActive="active">{{ 'HOME.BOYS' | translate }}</a>
+              </li>
+              <li class="nav-item" (click)="girls()">
+                <a class="nav-link"  routerLink="/girls" routerLinkActive="active">{{ 'HOME.GIRLS' | translate }}</a>
+              </li>   
+              <li>
+                <div class="contact">
+                  <span (click)="openContactInfo()">
+                    <i class="fas fa-phone"></i>
+                  </span>
+                  <span (click)="openWhoUs()">
+                    <i class="fas fa-users"></i>
+                  </span>
+                </div>
+              </li> 
+            </ul>
+            
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- <div class="myNav">
+<nav class="navbar navbar-expand-md">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mx-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link sale" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="women()">Women</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="men()">Men</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="boys()">Boys</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="girls()">Girls</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+</div> -->

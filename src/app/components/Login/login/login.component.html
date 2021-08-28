@@ -1,0 +1,29 @@
+<div class="log container">
+    <h2>{{ 'SIGNIN' | translate }}</h2>
+    <div class="row">
+        <div class="col-lg-5 col-md-6 col-sm-6">
+            <form class="form row" #f="ngForm" (ngSubmit)="signin(f)">
+                <div class="col-12">
+                    <input type="text" ngModel #email="ngModel"  class="form-control" name="email" placeholder="{{ 'EMAIL' | translate }}" required email>
+                    <div class="text-danger" *ngIf="email.touched && email.errors?.required">your email is required</div>
+                    <div class="text-danger" *ngIf="email.touched && email.errors?.email">It's not match with email format</div> <br>
+                </div>
+                <div class="col-12">
+                    <input type="password" class="form-control" ngModel #pass="ngModel" name="password" placeholder="{{ 'PASSWORD' | translate }}" required minlength="6">
+                    <div class="text-danger" *ngIf="pass.touched && pass.errors?.required">password is required</div>
+                    <div class="text-danger" *ngIf="pass.touched && pass.errors?.minlength">password must be more than 6 char</div> <br>
+                </div>
+                <div class="col-12">
+                    <button type="submit"  [disabled]="f.invalid" class="btn">{{ 'SIGNIN' | translate }}</button>
+                    <p>{{ 'ADDACC' | translate }}? <a routerLink="/register">{{ 'CREATEACC' | translate }}</a></p>
+                </div>
+            </form>
+            <div class="alert-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+        </div>
+        <div class="col-lg-7 col-md-6 col-sm-6">
+            <img src="https://imgs.bharatmatrimony.com/bmimgs/login/login-otp-banner.png">
+        </div>
+    </div>  
+  
+</div>
+

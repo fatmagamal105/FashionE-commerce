@@ -1,0 +1,113 @@
+<div class="checkout">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-12">
+                <div class="checkout-info">
+                    <div class="logo">
+                        {{ 'TITLE' | translate }}
+                    </div>
+                    <div class="shipping">
+                        <h4>{{ 'CHECKOUT.SHIPPING' | translate }}</h4>
+                        <form class="row gy-2 gx-3" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                            <div class="col-12">
+                                <input type="text" class="form-control" ngModel #street="ngModel" name="street" required placeholder="{{ 'STREET' | translate }}">
+                                <div class="text-danger" *ngIf="street.invalid && street.touched">Required</div>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" ngModel #apart="ngModel" name="apart" required placeholder="{{ 'BUILD' | translate }}">
+                                <div class="text-danger" *ngIf="apart.invalid && apart.touched">Required</div>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="number" class="form-control" ngModel #phone="ngModel" name="phone" required placeholder="{{ 'PHONE' | translate }}" minlength="11">
+                                <div class="text-danger" *ngIf="phone.invalid && phone.touched">Required</div>
+                                <div class="text-danger" *ngIf="phone.touched && phone.errors?.minlength">phone number must be 11 digit</div>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" ngModel #city="ngModel" name="Governator" required placeholder="{{ 'CITY' | translate }}">
+                                <div class="text-danger" *ngIf="phone.invalid && phone.touched">Required</div>
+                            </div>
+                            <div class="col-12">
+                                <!-- <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        {{ 'CHECKOUT.SAVE' | translate }}
+                                    </label>
+                                </div> -->
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" [disabled]="f.invalid" class="btn btn-primary">{{ 'CHECKOUT.COINTINUESHIP' | translate }}</button>
+                            </div>
+                        </form>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-7 cl-sm-12" *ngIf="isSubmit">
+                <div class="total-info">
+                    <table class="table">
+                        <tbody>
+                          <tr>
+                              <td>
+                                <div class="discount">
+                                    <form class="row gy-2 gx-3">
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" #promo name="promo" placeholder="{{ 'PROMOCODE' | translate }}">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-default" (click)="checkpromo(promo.value)">{{ 'CHECKOUT.APPLAY' | translate }}</button>
+                                        </div>
+                                        <div class="text-danger" *ngIf="check == 2">{{ 'WRONGPROMOCODE' | translate }}</div>
+                                        <div class="text-success" *ngIf="check == 1">{{ 'CORRECTPROMOCODE' | translate }}</div>
+                                    </form>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                <div class="sub-price">
+                                    <div class="title">{{ 'CHECKOUT.SUPTOTAL' | translate }}</div>
+                                    <div class="price"><span>{{totalPrice | currency}}</span></div>
+                                </div>
+                                <div class="price-shiping">
+                                    <div class="title">
+                                        {{ 'CHECKOUT.Shipping' | translate }}
+                                        <a (click)="openDialog()">
+                                            <i class="far fa-question-circle"></i>
+                                        </a>
+                                    </div>
+                                    <div class="price"><span>{{shippingPrice | currency}}</span></div>
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <div class="items-price">
+                                <div class="product-price">
+                                    {{ 'TOTAL' | translate }} :
+                                </div>
+                                <div class="info"> 
+                                     <span>{{total | currency}}</span>
+                                </div>
+                            </div>  
+                          </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-12">
+                        <form>
+                            <input type="radio" name="paymentMethod" value="cash" checked (click)="cash()">
+                            <label for="html">{{ 'CASH' | translate }}</label><br>
+                            <input type="radio" name="paymentMethod" value="paypal" (click)="paypal()">
+                            <label for="css">{{ 'PAYPAL' | translate }}</label><br>
+                          </form> 
+                          <ngx-paypal [config]="payPalConfig" *ngIf="pay=='paypal'"></ngx-paypal>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-success confirm-button" [disabled]="f.invalid"  (click)="confirmOrder()">{{ 'CONFIRMORDER' | translate}}</button>
+                    </div>
+                    <br>
+                    <div class="col-12" *ngIf="confirmMsg">
+                        <div class="text-success">{{ 'CONFIRMED' | translate}} <i class="far fa-check-circle"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

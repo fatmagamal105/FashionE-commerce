@@ -1,0 +1,40 @@
+<!-- <app-path></app-path> -->
+<div class="wishlist">
+    <div class="container-fluid">
+        <h5>{{ 'WISHLISTPAGE.TITLE' | translate }}</h5>
+        <div class="main">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">{{ 'IMAGE' | translate }}</th>
+                        <th scope="col">{{ 'PRODUCTNAME' | translate  }}</th>
+                        <th scope="col">{{ 'PRICE' | translate }}</th>
+                        <th scope="col">{{ 'ADD' | translate }}</th>
+                        <th scope="col">{{ 'REMOVE' | translate }}</th>
+                      </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of prod">
+                    <td class="product-img">
+                        <img [src]="product.imageUrl">
+                    </td>
+                    <td>
+                        <span class="product-name">{{product.name}}</span>
+                    </td>
+                    <td class="price">{{product.price}}$</td>
+                    <td>
+                        <button class="btn btn-default" routerLink="/product-details/:{{product.category}}/:{{product.itemId}}">{{ 'SEEMORE' | translate }}</button>
+                    </td>
+                    <td>
+                        <i class="fas fa-times" (click)="deleteItem(product.itemId)"></i>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            <!-- <div class="mail">
+                <i class="far fa-envelope"></i>
+                <span>Share my Wishlist Via Email</span>
+            </div> -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+.main{
+    font-family: 'Open Sans', sans-serif;
+}
+.main .welcome{
+    padding: 20px;
+}
+.main .welcome h1,
+.main .info h1{
+    font-size: 43px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+.main .welcome p{
+    color: #6e6969;
+    font-weight: 700;
+}
+.main .welcome .social i{
+    margin-right: 21px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000;
+}
+.main .welcome .social i:hover{
+    color: #fca311;
+    transition: all 0.5s;
+}
+.main .info{
+    color: #fff;
+    background-color: #fca311;
+    padding: 20px;
+}
+.main .info a{
+    font-weight: 600;
+    color: #fff;
+}

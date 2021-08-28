@@ -1,0 +1,17 @@
+.list-group-item {
+    border: none;
+    background-color: #fff;
+}
+.list .list-group-item .nav-link{
+    font-size: 1.5em;
+    color: #3d405b;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+}
+.list .list-group-item .nav-link:hover{
+    color: #e07a5f;
+    border-bottom: 1px solid rgb(61, 64, 91,0.5);
+}

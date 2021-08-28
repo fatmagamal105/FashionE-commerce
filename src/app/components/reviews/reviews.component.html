@@ -1,0 +1,44 @@
+<!-- <app-path></app-path> -->
+<div class="rating-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="reviews">
+                    <div class="header">
+                        <span class="title">
+                            {{ 'REVIEWS.TITLE'  | translate  }}
+                        </span>
+                    </div>
+                    <div class="review-body" *ngFor="let rev of reviews">
+                        <h3>{{rev.username}}</h3>
+                        <h5>{{rev.date}}</h5>
+                        <div class="rating">
+                            <ngb-rating [rate]="rev.rate"></ngb-rating>
+                            <pre>{{ 'REVIEWS.RATE' | translate  }}:<b>{{rev.rate}}</b></pre>
+                        </div>
+                        <div class="review-body">
+                            <p>{{rev.review}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="all-rating">
+                    <p>
+                        <span>{{average}}</span>
+                        <span>/</span>
+                        <span>10</span>
+                    </p>
+                    <div class="rating">
+                        <ngb-rating [(rate)]="currentRate1"></ngb-rating>
+                    </div>
+                    <p class="evaluation">
+                        <span>{{lenght}}</span>
+                        {{  'REVIEWS.EVALUATION' | translate }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

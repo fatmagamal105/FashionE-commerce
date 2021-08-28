@@ -1,0 +1,111 @@
+<div class="cart">
+    <div class="container-fluid">
+        <div class="main">
+            <div class="title">
+                <h5>{{ 'MYCART.TITLE' | translate }}</h5>
+                <span routerLink="/products/:women">{{ 'MYCART.CONTINUESHOP' | translate }}<i class="fas fa-chevron-circle-right"></i></span>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm 12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">{{ 'PRODUCTS' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let product of prod">
+                            <td>
+                                <div class="all">
+                                    <div class="product-img" routerLink="/product-details/:{{product.category}}/:{{product.itemId}}">
+                                        <img [src]="product.imageUrl">
+                                    </div>
+                                    <div class="info">
+                                        <p class="product-name">{{product.name}}</p>
+                                        <p class="size-color">
+                                            <span>{{product.size}}</span>
+                                            <span>/</span>
+                                            <span>{{product.color}}</span>
+                                        </p>
+                                        <p class="price">{{product.price | currency}}</p>
+                                        <label>{{ 'QUANTITY' | translate}}</label>
+                                        <div class="more-info">
+                                            <div class="quantity">
+                                                <div class="qty-group">
+                                                    <!-- <div class="form-check-inline">
+                                                        <button class="btn btn-primary" (click)="minus()"><i class="fa fa-minus"></i></button>
+                                                    </div> -->
+                                                    <div class="form-check-inline">
+                                                        <input type="text" class="form-control" [(ngModel)]="product.quantity">
+                                                    </div>
+                                                    <!-- <div class="form-check-inline">
+                                                        <button class="btn btn-primary" (click)="plus()"><i class="fa fa-plus"></i></button>
+                                                    </div> -->
+                                                </div>  
+                                            </div>
+                                            <!-- <button class="btn btn-default">
+                                                update cart
+                                            </button> -->
+                                            <a class="remove" (click)="remove(product.itemId,product.price)">
+                                                <i class="fas fa-times"></i> 
+                                                <span>{{ 'REMOVE' | translate }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="wishlist" (click)="addToWishList(product.itemId,product.imageUrl,product.name,product.price,product.quantity,product.category)">
+                                            <i class="fa fa-heart"></i>
+                                            <span>{{ 'MYCART.ADDWISHLIST' | translate }}</span>
+                                        </div>
+                                    </div>
+                                </div>               
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-4 col-md-12  col-sm-12">
+                    <div class="total-cart">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="title">{{ 'MYCART.ORDER' | translate }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                    <div class="total-price">
+                                        <div class="product-price">
+                                            {{ 'TOTAL' | translate }}
+                                        </div>
+                                        <div class="info"> 
+                                         <span>{{totalPrice | currency}}</span>
+                                        </div>
+                                    </div>               
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    <div class="contact-us">
+                                        <!-- <p>
+                                            <span>{{ 'MYCART.NOTE' | translate }}</span>
+                                            {{ 'MYCART.ADDCOMMENT' | translate }}
+                                        </p>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div> -->
+                                        <div class="check">
+                                            <button class=" btn btn-default" (click)="goToCheckout()">
+                                                {{ 'MYCART.GOCHECKOUT' | translate }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,187 @@
+<!-- <app-path></app-path> -->
+<div class="main">
+    <div class="container">
+        <!--start product detail-->
+        <div class="main-detail" *ngIf="prod">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 col-sm-7 product-img">
+                    <img [src]="prod.imageUrl" data-zoom="https://demos.imgix.net/wristwatch.jpg?w=1000&ch=DPR&dpr=2">
+                </div>
+                <div class="col-lg-6 col-md-4 col-sm-5">
+                    <div class="detail">
+                        <h4>{{prod.name}}</h4>
+                        <p><b>{{ 'TYPE' | translate }}</b> : {{prod.type}}</p>
+                        <p class="price">
+                            <span class="old-price">{{prod.oldprice | currency}}</span>
+                            <span class="current-price">{{prod.price | currency}}</span>
+                        </p>
+                        <div class="size">
+                            <label>{{ 'SIZE' | translate }}<em>*</em>
+                            </label>
+                            <select #productSize class="form-select " aria-label=".form-select-sm example">
+                                <option *ngFor="let size of prodSize">{{size}}</option>
+                            </select>
+                        </div>
+                        <div class="quantity">
+                            <label>{{ 'QUANTITY' | translate }}</label>
+                            <div class="qty-group">
+                                <div class="form-check-inline">
+                                    <button class="btn btn-primary" (click)="minus()"><i class="fa fa-minus"></i></button>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input type="text" #productQuantity class="form-control" [(ngModel)]="inputnumber">
+                                </div>
+                                <div class="form-check-inline">
+                                    <button class="btn btn-primary" (click)="plus()"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="color">
+                            <div class="color-item">
+                                <label>{{ 'COLOR' | translate }}</label>
+                                <select #productColor class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option *ngFor="let color of prodColor">{{color}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="sizeChart">
+                            <div class="sizeChart-item">
+                                <p>{{ 'SIZECHART' | translate }}<em>*</em>
+                                    <a (click)="sizeChartDialog()">
+                                        <i class="far fa-question-circle"></i>
+                                    </a>
+                                 </p>
+                            </div>
+                        </div>
+                        <div class="left-quantity">
+                            <!-- <p class="alert-danger">Only 2 left.</p> -->
+                        </div>
+                        <div class="product-description" >
+                            <h4>{{ 'DESCRIPTION' | translate }}</h4>
+                            <ul *ngFor="let details of prodDetails">
+                                <li>{{details}}</li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="buy-item">
+                            <div class="row">
+                                <div class="col-lg-12 buy" (click)="goToCart(productColor.value,productSize.value,productQuantity.value,prod.name,prod.price,prod.imageUrl)">
+                                    <button class="btn btn-default">{{ 'BUY' | translate }}</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <button class="btn btn-success" placement="bottom" 
+                                    (click)="addToCart(productColor.value,productSize.value,productQuantity.value,prod.name,prod.price,prod.imageUrl)" ngbPopover="{{ 'MYCART.CARTDONE' | translate }}">{{'CART' | translate }}</button>
+                                </div>
+                                <div class="col-lg-6">
+                                    <button class="btn btn-success" placement="bottom" (click)="addToWishList(prod.imageUrl,prod.name,prod.price)" ngbPopover="{{ 'MYCART.CARTDONE' | translate }}">{{ 'WISHLIST' | translate }}<i class="fa fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                           
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!--end product detail-->
+        <!--start reviews-->
+        <div class="rating-product">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12" *ngIf="oneReview">
+                    <div class="reviews">
+                        <div class="header">
+                            <span class="title">
+                                {{ 'REVIEWS.TITLE'  | translate  }} 
+                            </span>
+                            <span class="all-reviwes" routerLink="/reviews/:{{id}}"> 
+                                <a>
+                                    {{ 'REVIEWS.ALLREVIEW'  | translate  }} 
+                                    <i class="fas fa-chevron-circle-right"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="review-body">
+                            <h3>{{oneReview.username}}</h3>
+                            <h5>{{oneReview.date}}</h5>
+                            <div class="rating">
+                                <ngb-rating [(rate)]="oneReview.rate"></ngb-rating>
+                                <pre>{{ 'REVIEWS.RATE' | translate  }}: <b>{{oneReview.rate}}</b></pre>
+                            </div>
+                            <div class="review-body">
+                                <p>{{oneReview.review}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12" *ngIf="!oneReview">
+                    <div class="text-danger">{{ 'REVIEWS.NOREVIEW' | translate }}</div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="rate-product" *ngIf="!msg">
+                        <h4>{{ 'REVIEWS.GIVEREVIEW' | translate }}:</h4>
+                        <div class="rating">
+                            <ngb-rating [(rate)]="currentRate2"></ngb-rating>
+                            <pre>{{ 'REVIEWS.RATE' |translate }}: <b>{{currentRate2}}</b></pre>
+                        </div>
+                        <form class="row" #f="ngForm" (ngSubmit)="addReview(f)">
+                            <!-- <div class="col-6">
+                                <input type="text" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="col-6">
+                                <input type="email" class="form-control" placeholder="mail">
+                            </div> -->
+                            <div class="col-12">
+                                <textarea class="form-control" ngModel #review="ngModel" name="review" rows="3" placeholder="your review"></textarea>
+                            </div>
+                            <div class="submit col-6">
+                                <button type="submit" class="btn btn-default">{{ 'REVIEWS.ADDREVIEW' | translate }}</button>
+                            </div>
+                            
+                        </form>   
+                    </div>
+                    <div class="col-12" *ngIf="msg">
+                        <div class="text-success">{{ 'REVIEWS.SENT' | translate }}<i class="far fa-check-circle"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end reviews-->
+
+        <!--start related product-->
+        <div class="related-product">
+            <h5><span class="header">{{ 'PRODUCT-DETAIL.RELATEDPRODUCT' | translate }}</span></h5>  
+            <div class="items">
+                <div class="sub-products">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 relate-item " *ngFor="let product of relatedProd">
+                            <div class="product-item">
+                                <div class="myimg ">
+                                    <img [src]="product.imageUrl" routerLink="/product-details/:{{categoryName}}/:{{product.id}}">
+                                </div>
+                                    <span class="discount">-{{product.discount}}%</span>
+                                    <a routerLink="/sbhsbj">
+                                        <i class="fa fa-heart"></i>
+                                    </a> 
+                                    <button lass="btn btn-primary" placement="bottom" >{{ 'PRODUCT-DETAIL.PROMORE' | translate }}</button>
+                                    <div class="product-body">
+                                        <a>{{product.name}}</a>
+                                        <p>
+                                            <span class="old-salary">{{product.oldprice | currency}}</span>
+                                            <span class="current-salary">{{product.price | currency}}</span>
+                                        </p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <!--End related product-->
+
+        <!--start product-viewed-->
+        
+        <!--end product-viewed-->
+    </div>
+</div>
+

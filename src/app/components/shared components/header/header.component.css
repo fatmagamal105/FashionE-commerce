@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+
+/*TOP NAVBAR*/
+.top-header{
+    padding: 20px 0px 10px;
+}
+.top-header .login-bar{
+    display: flex;
+}
+.top-header .login-bar select{
+    margin-right: 10px;
+    font-size: 15px;
+    padding: 0px;
+    border: 1px saddlebrown;
+}
+.top-header .login-bar .dropdown .btn-secondary{
+    border: none;
+    background-color: transparent;
+    color: #000;
+    font-size: 13px;
+}
+.dropdown-menu {
+    font-size: 12px;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgb(173 169 169 / 15%);
+    border-radius: 0;
+    padding: 0px;
+    min-width: 7rem;
+}
+.top-header .logo-bar{
+    text-align: center;
+}
+.top-header .logo-bar .logo{
+    font-size: 53px;
+    color: #000;
+    text-decoration: none;
+    font-family: 'Merienda';
+}
+.top-header .logo-bar .logo b{
+    color: #fca311;
+}
+.top-header .logo-bar p{
+    font-size: 10px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+}
+.top-header .shopping-bar{
+    display: flex;
+}
+.top-header .shopping-bar .wrap .search input{
+    border: none;
+    border-bottom: 1px solid #1b191996;
+    font-size: 12px;
+}
+.top-header .shopping-bar .wrap .search input:hover,
+.top-header .shopping-bar .wrap .search input:focus{
+    border: none;
+    border-bottom: 1px solid #000;
+    transition: all 0.5s;
+}
+.top-header .shopping-bar .wrap .search button{
+    background-color: #000;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+}
+.top-header .shopping-bar .icons i{
+    color: #000;
+}
+/**/
+.nav-info .navbar{
+    padding: 0;
+    background-color: #111213!important;
+    font-family: 'Open Sans', sans-serif;
+
+}
+.head-lines .navbar-nav {
+    float: left;
+}
+.head-lines .contact{
+    float: right;
+    color: #fff;
+    position: relative;
+    left: 345px;
+    padding: 10px;
+    font-size: 20px;
+}
+.head-lines .contact span{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.nav-info .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #fca311;
+    border-radius: 0px;
+}
+.nav-info .navbar-light .navbar-nav .nav-item{
+    padding-right: 20px;
+    text-align: center;
+}
+.nav-info .navbar-light .navbar-nav .nav-link {
+    color: #fff;
+    padding: 12px;
+    font-size: 15px;
+}
+.nav-info .navbar-light .navbar-nav .nav-item .nav-link:hover{
+    background-color: #fca311;
+    transition: all 0.5s;
+    border-radius: 0px;
+    padding: auto;
+}
+.nav-info .navbar .center .head-lines{
+    text-align: center;
+}
+.nav-info .navbar-toggler {
+    line-height: 1;
+    background-color: #fca311;
+    border: 1px solid #ffffff;
+    border-radius: 0;
+}
+
+@media(max-width:1199px){
+    .top-header .shopping-bar{
+        display: flex;
+    }
+}
+@media(max-width:767px){
+    .top-header .logo-bar{
+        padding: 10px
+    }
+    .top-header .login-bar select{
+        font-size: 10px;;
+    }
+    .top-header .login-bar .dropdown .btn-secondary{
+        font-size: 11px;
+    }
+    .top-header .logo-bar .logo{
+        font-size: 30px;
+    }
+    .top-header .logo-bar p{
+        font-size: 8px;
+    }
+    .top-header .shopping-bar .wrap .search {
+        display: flex;
+    }
+    .top-header .shopping-bar .wrap .search input{
+        font-size: 10px;
+        max-width: 60%;
+    }
+    .top-header .shopping-bar .icons{
+        display: flex;
+    }
+}
